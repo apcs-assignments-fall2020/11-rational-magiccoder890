@@ -51,7 +51,11 @@ public class Rational
     public static Rational simplify(Rational r)
     {
         // REPLACE WITH YOUR CODE HERE
-        return null;
+        int gcd = greatestCommonFactor(r.numerator, r.denominator);
+        int numerator = r.numerator/gcd;
+        int denominator = r.denominator/gcd;
+        Rational answer = new Rational(numerator, denominator);
+        return answer;
     }
 
     // This method takes two Rationals, subtracts thems up, 
@@ -59,19 +63,32 @@ public class Rational
     public static Rational subtract(Rational r, Rational s)
     {
         // REPLACE WITH YOUR CODE HERE
-        return null;
+        int answer_denominator = (r.denominator * s.denominator);
+        int new_r_numerator = (r.numerator * s.denominator);
+        int new_s_numerator = (s.numerator * r.denominator);
+        Rational answer = new Rational(new_r_numerator - new_s_numerator,r.denominator*s.denominator);
+        answer = simplify(answer);
+        return answer;
     }
     
     public static Rational multiply(Rational r, Rational s)
     {
         // REPLACE WITH YOUR CODE HERE
-        return null;
+        int answer_numerator = (r.numerator * s.numerator);
+        int answer_denominator = (r.denominator * s.denominator);
+        Rational answer = new Rational(answer_numerator,answer_denominator);
+        answer = simplify(answer);
+        return answer;
     }
     
     public static Rational divide(Rational r, Rational s)
     {
         // REPLACE WITH YOUR CODE HERE
-        return null;
+        int answer_numerator = (r.numerator * s.denominator);
+        int answer_denominator = (r.denominator * s.numerator);
+        Rational answer = new Rational(answer_numerator,answer_denominator);
+        answer = simplify(answer);
+        return answer;
     }
 
 
