@@ -26,6 +26,7 @@ public class Rational
         int newDenominator = r.denominator*s.denominator; 
         
         Rational x = new Rational(newNumerator, newDenominator);
+        x = simplify(x);
         return x;
     }
 
@@ -104,26 +105,47 @@ public class Rational
 
     public Rational add(Rational s)
     {
+        int answer_denominator = (this.denominator * s.denominator);
+        int new_r_numerator = (this.numerator * s.denominator);
+        int new_s_numerator = (s.numerator * this.denominator);
+        Rational answer = new Rational(new_r_numerator + new_s_numerator,this.denominator*s.denominator);
+        answer = simplify(answer);
+        return answer;
         // REPLACE WITH YOUR CODE HERE
-        return null;
+        
     }
     
     public Rational subtract(Rational s)
     {
+        int answer_denominator = (this.denominator * s.denominator);
+        int new_r_numerator = (this.numerator * s.denominator);
+        int new_s_numerator = (s.numerator * this.denominator);
+        Rational answer = new Rational(new_r_numerator - new_s_numerator,this.denominator*s.denominator);
+        answer = simplify(answer);
+        return answer;
         // REPLACE WITH YOUR CODE HERE
-        return null;
+        
     }
     
     public Rational multiply(Rational s)
     {
+        int answer_numerator = (this.numerator * s.numerator);
+        int answer_denominator = (this.denominator * s.denominator);
+        Rational answer = new Rational(answer_numerator,answer_denominator);
+        answer = simplify(answer);
+        return answer;
         // REPLACE WITH YOUR CODE HERE
-        return null;
+        
     }
     
     public Rational divide(Rational s)
-    {
+    {int answer_numerator = (this.numerator * s.denominator);
+        int answer_denominator = (this.denominator * s.numerator);
+        Rational answer = new Rational(answer_numerator,answer_denominator);
+        answer = simplify(answer);
+        return answer;
         // REPLACE WITH YOUR CODE HERE
-        return null;
+        
     }
 }
 
